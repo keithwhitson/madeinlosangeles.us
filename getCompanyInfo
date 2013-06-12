@@ -1,0 +1,27 @@
+<?php
+$companyTitle = urlencode('Triton Digital');
+if (isset($_POST["ctitle"]) && $_POST["ctitle"] != ''){
+echo $ctitle = $_POST["ctitle"];
+$companyTitle = urlencode($ctitle);
+}
+  function get_data($url)
+{
+  $ch = curl_init();
+  $timeout = 5;
+  curl_setopt($ch,CURLOPT_URL,$url);
+  curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+  curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);
+  $data = curl_exec($ch);
+  curl_close($ch);
+  return $data;
+}
+
+$wikiData = get_data("http://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exlimit=10&titles=$companyTitle");
+$jsonDecodedWike = json_decode($wikiData);
+
+foreach($jsonDecodedWike->query->pages as $page){
+  echo $extract = $page->extract;
+	echo $title = $page->title;
+	echo $pageid = $page->pageid;
+}
+?>	
