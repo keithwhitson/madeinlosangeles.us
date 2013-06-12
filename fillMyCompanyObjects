@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
+  <head>
+	<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+	<script type="text/javascript">
+	//<![CDATA[
+	var companyArr = [];
+$(document).ready(function(){
+	
+	$.getJSON( "../jsonTest.text", function(json) {
+		$.each(json, function(key,value){
+			companyArr.push(value.name);
+		});
+			$.each(companyArr, function(index){
+				$('#putCompObject').load('../getCompanyInfo/',{ctitle: companyArr[index]});
+			});
+	});		
+});
+	//]]>
+	</script>
+	</head>
+	<body>
+		<div id="putCompObject"></div>
+	</body>
+	</html>
