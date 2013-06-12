@@ -20,8 +20,25 @@ $wikiData = get_data("http://en.wikipedia.org/w/api.php?action=query&prop=extrac
 $jsonDecodedWike = json_decode($wikiData);
 
 foreach($jsonDecodedWike->query->pages as $page){
-  echo $extract = $page->extract;
-	echo $title = $page->title;
-	echo $pageid = $page->pageid;
+	$extract = $page->extract;
+	$title = $page->title;
+	$pageid = $page->pageid;
+
+$title = mysql_real_escape_string(strip_tags(trim(stripslashes($title))));
+$extract = mysql_real_escape_string(strip_tags(trim(stripslashes($extract))));
+$pageid = mysql_real_escape_string(strip_tags(trim(stripslashes($pageid))));
+
+echo $sql = "INSERT INTO `getcompanyinfo`.`companyinfo` (`pageid`, `extract`, `title`) VALUES ('$pageid', '$extract', '$title');";
+
+$con=mysqli_connect("localhost","root","","getcompanyinfo");
+
+// Check connection
+if (mysqli_connect_errno($con))
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  } else { echo "Connection was OK!\n";}
+
+$result = mysqli_query($con, $sql);
+	
 }
 ?>	
