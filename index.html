@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de">
+  <head>
+  <script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+  <script type="text/javascript">
+  var companyArr = [];
+	$(document).ready(function(){
+		$.getJSON( "jsonTest.text", function(json) {
+			$.each(json, function(key,value){
+				//console.log(value.name);
+				companyArr.push(value.name);
+				$('#column_2').append('<div>'+value.name+'</div>');	
+			});
+			console.log(companyArr.join('-'));
+		});
+		heightOfColumns = $('#articles').height()+1;
+		$('#navigation').height(heightOfColumns); //Sets the height of the navigation to the height of the articles
+		$('#articles').height(heightOfColumns);  //Ensures that the height of the articles column = navigation
+		$('#column_2').height(heightOfColumns);  //Ensures that the height of the column2 = navigation
+		$('#column_3').height(heightOfColumns);  //Ensures that the height of the column3 = navigation
+		
+		widthOfContent = $('#navigation').width() + $('#column_2').width() + $('#column_3').width() + $('#articles').width() + 4.2;
+		$('#footer').width(widthOfContent);
+	});
+$(window).resize(function() {
+  widthOfContent = $('#navigation').width() + $('#column_2').width() + $('#column_3').width() + $('#articles').width() + 4.2;
+  $('#footer').width(widthOfContent);  //makes sure that the footer width stays as wode as the screen
+});	
+  </script>
+    <title>
+      madeinosangeles.us - title
+    </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <style type="text/css">
+*{
+	padding:0; margin:0;
+	font-family: sans-serif;
+	
+}
+
+body, html{
+	padding:0; margin:0;
+	background-color: #ECECED;
+}
+
+h1,h2,h3,h4,h5,h6{
+	padding:0; margin:0;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+
+
+a:link{
+	text-decoration: none;
+}
+
+
+
+#complete_container{
+	background-color: #ECECED;
+	margin-left:10px;
+}
+
+ul{
+	list-style-type:none;
+}
+
+#header{
+	width:100%;
+	background-color: #ECECED;
+}
+
+#logo{
+	width:27%;
+	height: 27%;
+	margin-left:15%;
+	border: 2px solid #7E3620;
+}
+
+.losangeles-border
+{
+	border: 2px solid #7E3620;
+}
+
+#wrapper{
+	float:left;
+	width: 100%;
+	padding: 0;
+}
+
+#navigation{
+	float: left;
+	width: 15%;
+	margin-left:0%;
+	background-color: white;
+	font-color: #7E3620;
+	margin-right:-4px;
+}
+
+#navigation a{
+	color: #7E3620;
+}
+
+#main_content{
+	width:70%;
+	background-color: white;
+	margin-left:0;
+	
+}
+
+
+#articles{
+	 margin-left: 21.5%;
+}
+
+#column_2{
+background-color: white; 
+width:15%;
+float:left;
+margin-left:-30%;
+}
+
+#column_3{
+background-color: white; 
+width:14%;
+float:left;
+margin-left:-15%;
+}
+
+
+#footer{
+background-color: white;
+clear:left;
+}
+
+#footer{
+	height:120px;
+}
+
+    </style>
+  </head>
+  <body>
+	<div id ="complete_container"><!--Wrapper For everything-->
+		<div id="header"> <!--header-->
+		<img id="logo" alt="logo" title="logo" src="images/header-bg.jpg" />
+		</div>
+		<div id="wrapper"><!--Wrapper For navigation and main_content-->
+		<div id="navigation"class="losangeles-border" >
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Companies</a></li>
+				<li><a href="#">Products</a></li>
+				<li><a href="#">Entertainment</a></li>
+				<li><a href="#">Made in the USA</a></li>
+				<li><a href="#">About Us!</a></li>
+			</ul>
+		</div> <!--For navigation-->
+		<div id="main_content">
+			<div id="articles"class="losangeles-border">
+			<h2 id="article_headline">Top madeinlosangeles.us news</h2>
+				<ul>
+					<li><a href="#">American Apparel</a></li>
+					<li><a href="#">Companies</a></li>
+					<li><a href="#">Products</a></li>
+					<li><a href="#">Entertainment</a></li>
+					<li><a href="#">Made in the USA</a></li>
+					<li><a href="#">About Us!</a></li>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Companies</a></li>
+					<li><a href="#">Products</a></li>
+					<li><a href="#">Entertainment</a></li>
+					<li><a href="#">Made in the USA</a></li>
+					<li><a href="#">About Us!</a></li>
+					<li><a href="#">American Apparel</a></li>
+					<li><a href="#">Companies</a></li>
+					<li><a href="#">Products</a></li>
+					<li><a href="#">Entertainment</a></li>
+					<li><a href="#">Made in the USA</a></li>
+					<li><a href="#">About Us!</a></li>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Companies</a></li>
+					<li><a href="#">Products</a></li>
+					<li><a href="#">Entertainment</a></li>
+					<li><a href="#">Made in the USA</a></li>
+					<li><a href="#">About Us!</a></li>
+					<li><a href="#">Entertainment</a></li>
+					<li><a href="#">Made in the USA</a></li>
+					<li><a href="#">About Us!</a></li>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Companies</a></li>
+					<li><a href="#">Products</a></li>
+					<li><a href="#">Entertainment</a></li>
+					<li><a href="#">Made in the USA</a></li>
+					<li><a href="#">About Us!</a></li>
+				</ul>
+			</div><!--For Articles-->
+		</div><!--For
+		main_content-->
+		</div> <!--Wrapper For navigation and main_content-->
+		<div id="column_2" class="losangeles-border">
+			<h2>Companies</h2>
+		</div>
+		<div id="column_3" class="losangeles-border">
+			<h2>Products</h2>
+		</div>
+		<div id="footer" class="losangeles-border"></div>
+	</div><!-- This container is wrapped around everything -->
+  </body>
+</html>
